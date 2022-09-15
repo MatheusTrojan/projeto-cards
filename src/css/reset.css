@@ -1,0 +1,19 @@
+/* reset.css é para RESETAR alguns estilos que vem por padrão no navegador
+    por exemplo um título que já vem com negrito, etc */
+
+/* a estrutura de um codigo css começa com um seletor ("*" no caso)
+    entre as chaves fica a estrutura para criar código para estilizar 
+    o asterisco é um seletor globbal, pega todos elementos, não importa qual.. h1, h2 etc*/
+* {
+    /* margin é a margem externa dos elementos (espaçamento entre elementos) */
+     margin: 0;
+    /* padding é o espaçamento dentro do elemento */
+    padding: 0;
+    /* basicamente faz com que a largura dos elementos não conte o padding e o border */
+    box-sizing: border-box;
+}
+
+/* ul é a tag de listas, queremos resetar o list style (bolinhas de lista) */
+ul {
+    list-style: none;
+}

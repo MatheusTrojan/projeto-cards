@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Cards Pokemon</title>
+
+    <!-- link:favicon para trocar o icone ao lado do titulo da aba-->
+    <link rel="shortcut icon" href="src/imagens/pokebola.png" type="image/x-icon">
+    
+    <!-- importação da fonte do site googlefonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
+
+    <!-- linkando o css ao html-->
+    <link rel="stylesheet" href="src/css/reset.css">
+
+    <link rel="stylesheet" href="src/css/estilos.css">
+    <!-- linkar o responsivo sempre depois dos estilos, pois o efeito é cascata -->
+    <link rel="stylesheet" href="src/css/responsivo.css">
+</head>
+
+<body>
+    <!-- adicionamos essa class para colocar atributos ao html atraves do css-->
+    <header class="cabecalho">
+        <!-- header é a parte de cima do site(cabeçalho), dividindo entre a imagem da pokebola e a escrita -->
+        <img src="src/imagens/pokebola.png" alt="pokébola" class="pokebola"/>
+        <h1 class="titulo">MapaDev Week</h1>
+    </header>
+
+        <!-- as classes sao colocadas depois de definir todo html, enquanto faço o css vou definindo classes e etc-->
+    <main class="pokemon-slider">
+        <!-- no main teremos os cards, junto com as setas de avançar/voltar em forma de botão-->
+        <button class="btn-seta btn-voltar" id="btn-voltar">
+            <img src="src/imagens/seta.png" alt="seta voltar">
+        </button>
+
+        <!-- faremos uma lista de cartões com unordered list-->
+        <ul class="lista-pokemons">
+            <!-- dentro da ul, só podemos utilizar li 
+                dentro da li podemos voltar a usar h1 etc
+            li é item de lista, será uma para cada cartao -->
+            <li class="cartao selecionado fundo-1">
+                <!-- vamos usar div para DIVIDIR o cartão em etapas
+                PARTE DE CIMA: nome do pokemon // hp -->
+                <div class="informacoes">
+                    <!-- h2 para nao utilizar mesma fonte de titulo principal, apenas um "subtitulo"-->
+                    <h2 class="nome">Pikachu</h2>
+                    <p class="vida">HP 300</p>
+                </div>
+                <!--segunda div para a parte do meio do cartão: imagem-->
+                <div class="container-imagem">
+                    <img src="src/imagens/pikachu.png" alt="Pikachu" class="imagem-pokemon">
+                </div>
+                <!-- terceira div para a parte inferior, da descrição-->
+                <div class="descricao">
+                    <!-- h3 pois é um titulo menos importante que o nome do pokemon (HIERARQUIA)-->
+                    <h3 class="titulo">Descrição</h3>
+                    <p class="texto">Os Pikachus são pequenos roedores de quarenta centímetros e seis quilogramas, com um corpo redondo, pernas curtas e uma longa cauda. Quando macho, a cauda tem o formato de um raio, mas, se o Pikachu for fêmea sua cauda ganha um coração na ponta.</p>
+                </div>
+            </li>
+            <li class="cartao fundo-2">
+                    <div class="informacoes">
+                    <h2 class="nome">Charizard</h2>
+                    <p class="vida">HP 800</p>
+                </div>
+                <div class="container-imagem">
+                    <img src="src/imagens/charizard.png" alt="Charizard" class="imagem-pokemon">
+                </div>
+                <div class="descricao">
+                    <h3 class="titulo">Descrição</h3>
+                    <p class="texto">Geralmente, um Charizard é muito competitivo. Ele adora a batalha e seu espírito competitivo também é notável, uma vez que nunca vai cuspir fogo em um inimigo mais fraco a menos que tenha sido provocado ou ordenado. Quando fica muito irritado, as chamas em sua cauda se tornam branco-azuladas.</p>
+                </div>
+            </li>
+                <li class="cartao fundo-3">
+                    <div class="informacoes">
+                    <h2 class="nome">Mewtwo</h2>
+                    <p class="vida">HP 1200</p>
+                </div>
+                <div class="container-imagem">
+                    <img src="src/imagens/mewtwo.png" alt="Mewtwo" class="imagem-pokemon">
+                </div>
+                <div class="descricao">
+                    <h3 class="titulo">Descrição</h3>
+                    <p class="texto">Mewtwo foi criado geneticamente em um laboratório, sendo um clone do misterioso antigo Pokémon Mew. É uma criatura com postura humanóide, mas tem algumas características felinas. </p>
+                </div>
+            </li>
+        </ul>
+
+        <button class="btn-seta" id="btn-avancar">
+            <!-- a outra seta aqui embaixo (uma para esquerda outra pra direita // avançar e voltar)-->
+            <img src="src/imagens/seta.png" alt="seta avancar">
+        </button>
+    </main>
+    <!-- o link para o JS colocamos logo antes do final do body-->
+    <script src="src/js/index.js"></script>
+</body>
+
+</html>

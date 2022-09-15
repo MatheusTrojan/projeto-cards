@@ -1,0 +1,37 @@
+/* para escrever codigo responsivo precisamos colocar uma media*/
+/* media diz quando que serão aplicados os parametros responsivos
+no caso abaixo, somente quando a largura máxima da tela for de 620px serão aplicada algumas regras para telas menores
+
+fica decidido o 620px atraves de testes.. no "inspecionar" podemos simular um tamanho de tela de celular para ver como a pagina reage, e a partir dai arrumar os itens que ficarem bugados */
+@media (max-width: 620px) {
+    .pokemon-slider{
+        padding: 0 15px;
+        gap: 10px;
+    }
+
+    .btn-seta {
+        width: 20px;
+        height: 20px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .lista-pokemons {
+        height: 480px;
+    }
+
+    .cartao .imagem-pokemon {
+        max-height: 230px;
+    }
+
+    .cartao .informacoes .nome {
+        max-width: 50%;
+        font-size: 18px;
+    }
+
+    .cartao .informacoes .vida {
+        font-size: 14px;
+    }
+}

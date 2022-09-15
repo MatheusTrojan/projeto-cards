@@ -1,0 +1,208 @@
+/* aqui vamos estilizar o html (após ter resetado os parâmetros padrão do navegador*/
+/* não esquecer de linkar o css ao html */
+body {
+    /* sans-serif após a virgula é a fonte FALLBACK, como se fosse uma reserva para caso dê algum problema com a fonte importada */
+    font-family: 'Outfit', sans-serif;
+    /* background image para colocar uma imagem de fundo ao site
+    no css, criamos o caminho até a imagem dessa forma, com o url()
+    o ../ é para "voltar uma pasta"> sair da pasta css e acessar imagens*/
+    background-image: url(../imagens/fundo-site.png);
+    /* background repeat para não permitir que a imagem do BG fique repetindo */
+    background-repeat: no-repeat;
+    /* essa instrução faz o BG cobrir todo o body 
+    pela imagem ser DESFOCADA, não perderá muita qualidade ao ampliar*/
+    background-size: cover;
+    /* altura minima de 100vh (100% da altura) para o body ocupar toda altura disponivel e nao ficar uma brecha branca no fim
+    foi utlizado na aula enquanto estilizavamos o card do pikachu e os outros dois card estavam comentadaos para ficar mais organizado*/
+    min-height: 100vh;
+}
+
+/* o PONTO no inicio do nome indica que é uma classe
+essa classe foi criada no header do html 
+
+classes são importante para dar ESPECIFICIDADE ao projeto
+por exemplo para formatar e editar itens específicos e não de forma geral*/
+
+.cabecalho {
+    /* é bom dar uma cor forte para conseguir enxergar onde é que estou mexendo, até onde vai, etc */
+    /* background-color: red; */
+    /* por padrão, o cabeçalho tem por pdrão um display block, onde os elementos ocupam uma largura muito grande, então ficam empilhados, sem conseguir ficar um do lado do outro
+     Com display flex que colocamos no elemento PAI (header -> cabecalho)
+    os elementos "FILHO" (imagem e h1) são afetados e forçados a ficar lado a lado */
+    display: flex;
+    /* aqui o que quero dizer: quero centralizar meu header*/
+    justify-content: center;
+    /* align é para alinhar verticalmente 
+    ""pega os dois filhos do header e alinha eles verticalmente"" */
+    align-items: center;
+    /* gap é para dar um espaço entre os elementos do header
+    só é possivel usar o gap com o display flex */
+    gap: 15px;
+    /* adicionando um padding no topo do meu elemento cabeçalho
+    para dar um espaço acima dos elementos 
+    PARA ESPAÇAR DOIS ELEMENTOS HTML: usar margin
+    PARA ESPAÇO INTERNO (DESGRUDAR DAS BORDAS): usar padding*/
+    padding-top: 50px;
+}
+
+/* estilize o elemento que tem classe titulo, e que está dentro do elemento que tem classe cabecalho */
+.cabecalho .titulo {
+    color: #f1ecff;
+}
+
+.cabecalho .pokebola {
+    /* largura e altura em pixels*/
+    width: 25px;
+    height: 25px;
+}
+
+.pokemon-slider {
+    /* novamente display flex para deixar os elementos lado a lado
+    (seta / cartao / seta)*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;    
+    /* assim dessa forma, a margin sera de 60 em cima e em baixo, e 0 dos lados*/
+    margin: 60px 0;
+}
+
+.lista-pokemons {
+     /* altura é definida por tentativa, vendo o que é bom e o que não é */
+    width: 310px;
+    height: 520px; 
+    /* position relative anda junto com o absolute (utilizado la na class cartao, para organizar os elementos que ficaram sobrepostos) */
+    position: relative;   
+}
+
+.btn-seta {
+    background-color:#f1ecff;
+    width: 70px;
+    height: 70px;
+    /* border-radius para dar o raio na borda da seta (para ficar arredondado)*/
+    border-radius: 50px;
+    /* para tirar a borda do elemento*/
+    border: 0;
+    /* para alterar o tipo de cursor ao passar por cima da seta*/
+    cursor: pointer;
+    /* após colocar o HOVER (la embaixo) podemos adicionar uma transição para o elemento trocar de cor de forma mais suave ao passar o mouse por cima*/
+    transition: background-color 0.2s ease-in-out;
+    /* para dar mais acabamento, podemos adicionar um box shadow, conseguimos exemplos no site: https://getcssscan.com/css-box-shadow-examples 
+    só clicar no quadradinho que quero e já vai me dar a cópia pronta para colar aqui embaixo*/
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+/* para estilizar um elemento que tem duas classes, podemos declarar dessa forma (uma classe que afeta as duas setas, outra para rotacionar o elemento) */
+
+/* daria para usar apenar o btn-voltar na declaração, mas ai não ficaria TÃO específico */
+.btn-seta.btn-voltar {
+    /* como só queremos rotacionar no eixo Y, podemos usar esse comando, seguido do valor que iremos rotacionar + deg (degrees)*/
+    transform: rotateY(180deg);
+}
+
+/* hover é o efeito ao passar o mouse por cima do elemento*/
+.btn-seta:hover {
+    background-color: #8351FE;
+}
+
+.cartao {
+    /* range do opacity vai de 0 a 1
+    colocamos em 0 para o cartão que não esteja selecionado fique invisível*/
+    
+    background-color: blueviolet;
+    /* dessa forma forçamos o cartão a ocupar 100% do tamanho disponível*/
+    height: 100%;
+    display: flex;
+    /* column para a direção do flex ser em coluna, com os elementos um em cima do outro*/
+    flex-direction: column;
+    /* esse justify é para colocar um espaço entre os elementos FILHO dentro do elemento PAI (cartao), utilizando o espaço disponível */
+    justify-content: space-between;
+    /* position absolute faz com que os elementos fiquem sobrepostos, respeitando a posiçao, altura e largura do elemento PAI (classe lista-pokemons) com o position relative */
+    position: absolute;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    /* transição mais suave entre a troca dos cartões */
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.cartao.selecionado {
+    opacity: 1;
+    /* z-index é o eixo de profundidade, estamos então forçando ele a ficar sempre na frente dos outros
+    é necessario colocar, porque por mesmo que a opacity do cartao NAO SELECIONADO esteja em 0, ele ainda vai estar na frente e acabará dando alguns bugs*/
+    z-index: 1;
+}
+
+.fundo-1 {
+    /* fundo dos cartões feito de forma separado, declarando qual é a imagem e o no-repeat de uma só vez*/
+    background: url(../imagens/fundo-card-1.jpg) no-repeat;
+}
+
+.fundo-2 {
+    background: url(../imagens/fundo-card-2.jpg) no-repeat;
+}
+
+.fundo-3 {
+    background: url(../imagens/fundo-card-3.jpg) no-repeat;
+}
+
+.cartao .informacoes {
+    /*editando o local onde fica nome e vida do pokemon*/
+    background-color: rgba(179, 177, 185, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.cartao .informacoes .nome {
+    color:#f1ecff;
+    font-size: 22px;
+}
+
+.cartao .informacoes .vida {
+    background-color: #333;
+    /* cor do texto do HP */
+    color: #f1ecff;
+    /* delimitação do tamanho do retangulo do HP no canto do cartão*/
+    padding: 6px 10px;
+    border-radius: 20px;
+}
+
+.cartao .container-imagem {
+    text-align: center;
+}
+
+.cartao .imagem-pokemon {
+    /*estilizando a imagem do pokemon para ele sempre ocupar 100% da largura, sem estourar o máximo do cartão*/
+    max-width: 100%;
+    /* altura maxima deve ser essa, independente do tamanho da imagem*/
+    max-height: 280px;
+    padding: 20px;
+}
+
+.cartao .descricao {
+    background-color: rgba(255, 255, 255, 0.75);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.cartao .descricao .titulo {
+    background-color: #333;
+    color: #f1ecff;
+    font-size: 15px;
+    padding: 10px;
+}
+
+.cartao .descricao .texto {
+    font-size: 14px;
+    padding: 10px;
+    text-align: justify;
+    /* definir altura maxima para não ultrapassar o cartão*/
+    max-height: 115px;
+    /* com o overflow no eixo y, todo texto que ultrapassar o limite, irá se ajustar com uma barra de scroll */
+    overflow-y: auto;
+}
