@@ -1,2 +1,2 @@
-# projeto-cards
-Projeto simples de um slider de cards 
+# Projeto Slider - Cards
+Projeto simples de um slider de cards desenvolvido em uma imersão de Html, CSS e JavaScript
